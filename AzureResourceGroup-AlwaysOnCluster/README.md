@@ -27,7 +27,7 @@ github의 [Create a SQL Server 2014 Always On Availability Group in an existing 
 
 ## 사용 방법
 
-1. 소스코드를 다운로드 하여 Visual Studio를 엽니다.
+1. 소스코드를 다운로드 하여 Visual Studio에서 엽니다.
 2. 프로젝트 파일에서 오른쪽 마우스를 클릭하고, [Deploy] > [New Deployment]를 선택합니다.
  ![AO](https://jyseongfileshare.blob.core.windows.net/images/AzureResourceGroup-AlwaysOnCluster01.jpg)
 3. 아래의 그림과 같은 창이 보여지게 됩니다.
