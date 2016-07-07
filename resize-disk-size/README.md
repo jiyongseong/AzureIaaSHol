@@ -1,4 +1,4 @@
-# Azure VM Disk 크기 조정
+# Azure VM Disk 크기 조정(ARM)
 
 Azure VM에 있는 OS 디스크 또는 데이터 디스크의 크기를 조정하는 PowerShell 스크립트 입니다.  
 물론 Azure 포털에서도 VM > [일반] > [디스크] > 크기(GiB)에서 조정이 가능합니다만, 여러 디스크를 한번에 수정하는 작업은 상당한 노동력을 필요로 하죠.    
