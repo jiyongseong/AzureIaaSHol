@@ -30,6 +30,7 @@ Get-AzureVM -ServiceName $serviceName -Name $vmName | Get-AzureOSDisk
 ```
 
 위의 스크립트를 실행하면, 다음과 같은 결과가 출력됩니다. 여기서, DiskName을 복사합니다.
+(반환 결과는 여러 분의 VM에 따라서 달라집니다. 아래는 예시입니다.).
 
 ![](https://jyseongfileshare.blob.core.windows.net/images/resize-disk-size0.jpg)
 
@@ -40,7 +41,7 @@ Get-AzureVM -ServiceName $serviceName -Name $vmName | Get-AzureDataDisk | SELECT
 ```
 
 위의 스크립트를 실행하면, 다음과 같은 결과가 반환됩니다.
-스크립트는 LUN 번호를 기준으로 정렬되어, 디스크의 이름을 반환합니다.
+스크립트는 LUN 번호를 기준으로 정렬되어, 디스크의 이름을 반환합니다(반환 결과는 여러 분의 VM에 장착된 데이터 디스크에 따라서 달라집니다. 아래는 예시입니다.).
 
 ![](https://jyseongfileshare.blob.core.windows.net/images/resize-disk-size1.jpg)
 
