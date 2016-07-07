@@ -5,6 +5,8 @@ Azure VM에 있는 OS 디스크 또는 데이터 디스크의 크기를 조정�
 
 이런 경우에 PowerShell이 강력한 기능을 발휘합니다.
 
+아래의 설명은 __ARM(Azure Resource Manager)__ 을 기준으로 하고 있습니다.
+
 PowerShell 콘솔(powershell.exe)이나, PowerShell ISE(powershell_ise.exe)를 실행합니다.
 
 먼저, 로그인을 합니다.
