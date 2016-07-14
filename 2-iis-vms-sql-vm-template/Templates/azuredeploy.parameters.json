@@ -3,13 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "your storage account name"
+      "value": "storage account name"
     },
     "adminUsername": {
       "value": "admin user name"
     },
     "dnsNameforLBIP": {
-      "value": "FQDN name"
+      "value": "prefix for fqdn"
+    },
+    "vmSize": {
+      "value": "Standard_D1_v2"
     }
   }
 }
