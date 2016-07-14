@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storageAccountName": {
-      "value": "jyseongvms"
+      "value": "your storage account name"
     },
     "adminUsername": {
-      "value": "labuser"
+      "value": "admin user name"
     },
     "dnsNameforLBIP": {
-      "value": "jyseongvms"
+      "value": "FQDN name"
     }
   }
 }
