@@ -27,3 +27,29 @@ Azure 상에 두 대의 IIS VM과 한 대의 SQL Server로 구성된 환경 구�
 상단에 있는 세 가지 정보(저장소 이름, 관리자 이름, 관리자 비밀 번호)를 입력하고 [Save] 버튼을 눌러서 배포를 시작합니다.
 
 ![](https://jyseongfileshare.blob.core.windows.net/images/2-iis-vms-sql-vm-template-06.png)
+
+Visual Studio를 이용하지 않고, PowerShell을 이용하는 경우에는 다음의 스크립트를 이용하여 실행이 가능합니다.
+
+```PowerShell
+Login-AzureRmAccount
+
+$subscriptionName = "your subscription name"
+Select-AzureRmSubscription -SubscriptionName $subscriptionName
+
+$resourcGroupname = "resouce group name"
+$location = "location - westus"
+$storageAccountName = "storage account for template file"
+$fileLocation = "template file location"
+$templateFile = $fileLocation+"templates\azuredeploy.json"
+$templateParametersFile = $fileLocation + "templates\azuredeploy.parameters.json"
+
+cd $fileLocation
+
+New-AzureRmResourceGroup -Name $resourcGroupname -Location $location -Force
+
+./Deploy-AzureResourceGroup.ps1 -StorageAccountName $storageAccountName  -ResourceGroupName $resourcGroupname `
+                                    -ResourceGroupLocation $location `
+                                    -TemplateFile $templateFile `
+                                    -TemplateParametersFile $templateParametersFile `
+                                    -ArtifactStagingDirectory '.' -DSCSourceFolder '.\DSC' -UploadArtifacts 
+```

@@ -637,7 +637,7 @@
         "typeHandlerVersion": "2.8",
         "autoUpgradeMinorVersion": true,
         "settings": {
-          "modulesUrl": "[concat(parameters('_artifactsLocation'), '/', 'IISDSC.ps1.zip')]",
+          "modulesUrl": "[concat(parameters('_artifactsLocation'), '/DSC/', 'IISDSC.zip')]",
           "sasToken": "[parameters('_artifactsLocationSasToken')]",
           "configurationFunction": "[variables('IISDSC')]",
           "wmfVersion": "4.0",
