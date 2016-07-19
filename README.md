@@ -18,7 +18,7 @@ Micorosoft Azure에서 제공되는 IaaS(Infrastructure as a Service) 서비스�
 ### [2 IIS VM & SQL VM 생성 템플릿](https://github.com/jiyongseong/AzureIaaSHol/tree/master/2-iis-vms-sql-vm-template) 
 - Azure 상에 두 대의 IIS VM과 한 대의 SQL Server로 구성된 환경 구성을 위한 Azure Resource Template
 
-### [2 Azure 운영 로그 내려 받기](https://github.com/jiyongseong/AzureIaaSHol/tree/master/azure-operation-log) 
+### [Azure 운영 로그 내려 받기](https://github.com/jiyongseong/AzureIaaSHol/tree/master/azure-operation-log) 
 - Azure PowerShell을 이용하여 Azure의 운영로그를 csv 파일로 내려 받기
 
 
