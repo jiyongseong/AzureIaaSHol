@@ -78,3 +78,4 @@ Select-AzureRmSubscription -SubscriptionName $subscriptionName
 - [Audit operations with Resource Manager](https://azure.microsoft.com/en-us/documentation/articles/resource-group-audit/)
 - [View deployment operations with Azure PowerShell](https://github.com/Azure/azure-content/blob/master/articles/resource-manager-troubleshoot-deployments-powershell.md)
 - [Get-AzureRmLog](https://msdn.microsoft.com/en-us/library/mt603617.aspx)
+- [Azure audit logs UX refresh](https://azure.microsoft.com/ko-kr/blog/azure-audit-logs-ux-refresh/)
