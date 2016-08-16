@@ -22,4 +22,4 @@ Micorosoft Azure에서 제공되는 IaaS(Infrastructure as a Service) 서비스�
 - Azure PowerShell을 이용하여 Azure의 운영로그를 csv 파일로 내려 받기
 
 
-**김태영([taeyo](https://github.com/taeyo)), 성지용([jiyongseong](https://github.com/jiyongseong))**
+**성지용([jiyongseong](https://github.com/jiyongseong))**
