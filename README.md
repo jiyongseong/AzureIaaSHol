@@ -10,6 +10,8 @@ Micorosoft Azure에서 제공되는 IaaS(Infrastructure as a Service) 서비스�
   * [Azure VM Disk 크기 조정 - ASM (PowerShell)](https://github.com/jiyongseong/AzureIaaSHol/tree/master/powershell/resize-disk-size-asm) 
     - PowerShell을 이용하여, Azure VM의 OS 디스크 또는 데이터 디스크의 크기를 변경하는 방법을 설명합니다.
       - 설명은 __ASM(Azure Service Manager)__ 을 기준으로 하고 있습니다.
+  * [Custom script를 이용하여 Azure VM에 언어 팩 설치하기 (PowerShell)](https://github.com/jiyongseong/AzureIaaSHol/tree/master/powershell/installing-language-packs)
+    - Virtual Machine을 provision하면서, 언어 팩 설치를 자동화하는 custom script를 제공합니다. 
 
 ### Resource templates
 
