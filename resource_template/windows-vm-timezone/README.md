@@ -8,7 +8,9 @@ PowerShell을 이용하는 경우, [Add-AzureProvisioningConfig](https://msdn.mi
 
 Azure Resourc Manager template을 이용하여 Virtual Machine을 생성하는 경우에도 Timezone을 지정할 수 있습니다.
 
-Azure Resource Manager template에서 Virtual Machine의 osProfile 항목에 
+Timezone 지정은 다음과 같이 수행이 가능합니다.
+
+Azure Resource Manager template에서 Virtual Machine의 osProfile 항목에서
 
 ```json
 "osProfile": {
