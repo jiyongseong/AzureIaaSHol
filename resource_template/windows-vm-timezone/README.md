@@ -3,9 +3,6 @@
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjiyongseong%2FAzureIaaSHol%2Fmaster%2Fresource_template%2Fwindows-vm-timezone%2Ftemplates%2Ftemplate.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-<a href="http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fjiyongseong%2FAzureIaaSHol%2Fmaster%2%2Fresource_template%2Fwindows-vm-timezone%2Ftemplates%2Ftemplate.json" target="_blank">
-    <img src="http://armviz.io/visualizebutton.png"/>
-</a>
 
 Azure Virtual Machine의 시간대는 기본적으로 UTC를 기준으로 생성이 이루어집니다.
 
