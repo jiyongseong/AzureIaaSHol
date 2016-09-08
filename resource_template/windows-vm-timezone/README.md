@@ -8,7 +8,7 @@ Azure Virtual Machine의 시간대는 기본적으로 UTC를 기준으로 생성
 
 PowerShell을 이용하는 경우, [Add-AzureProvisioningConfig](https://msdn.microsoft.com/en-us/library/azure/dn495299.aspx)라는 cmdlet의 -TimeZone의 매개변수에 사용하려는 Timezone을 지정하면 해당 Timezone을 사용하는 Virtual Machine이 생성됩니다.
 
-***Timezone 설정은 Winodws VM에서만 설정 가능합니다.*** 
+***Timezone은 Winodws VM에서만 설정 가능합니다.*** 
 
 Azure Resourc Manager template을 이용하여 Virtual Machine을 생성하는 경우에도 Timezone을 지정할 수 있습니다.
 
