@@ -16,7 +16,7 @@ Micorosoft Azure에서 제공되는 IaaS(Infrastructure as a Service) 서비스�
     - Virtual Machine을 provision하면서, 언어 팩 설치를 자동화하는 custom script를 제공합니다. 
 
   * [Azure VM에 Instance Public IP 추가하기 (ASM)](https://github.com/jiyongseong/AzureIaaSHol/tree/master/powershell/add-a-public-ip-to-vm-asm)
-    - Public IP를 설정하는 방법
+    - Public IP를 설정 방법
     
 ### Resource templates
 
