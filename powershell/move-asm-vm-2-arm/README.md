@@ -14,7 +14,7 @@ Classic(ASM, Azure Service Management)에서 만들어진 VM을 ARM(Azure Resour
 
 [https://azure.microsoft.com/en-us/downloads/](https://azure.microsoft.com/en-us/downloads/)
 
-이후의 작업들은 [Move-AzureService](https://docs.microsoft.com/en-us/powershell/servicemanagement/Azure.Service/v2.1.0/Move-AzureService)라는 cmdlet과 [Azure 포털](http://portal.azure.com/)을 이용하게 됩니다.
+이후의 작업들은 [Move-AzureVirtualNetwork](https://docs.microsoft.com/en-us/powershell/servicemanagement/Azure.Service/v2.1.0/Move-AzureVirtualNetwork)라는 cmdlet과 [Azure 포털](http://portal.azure.com/)을 이용하게 됩니다.
 
 #### Classic VM 구성
 
@@ -45,3 +45,51 @@ Classic(ASM, Azure Service Management)에서 만들어진 VM을 ARM(Azure Resour
 각 VM의 VHD들은 하나의 storage account를 사용하도록 구성되어 있습니다.
 
 #### Classic VM 마이그레이션
+
+이제는 VM을 마이그레이션 할 차례입니다. VM들이 가상 네트워크에 있는 경우에는 가상 네트워크를 마이그레이션 하면, 가상 네트워크 안에 있는 VM들도 같이 마이그레이션 됩니다.
+
+가상 네트워크가 없이 생성된 VM의 경우에는 [Move-AzureService](https://docs.microsoft.com/en-us/powershell/servicemanagement/Azure.Service/v2.1.0/Move-AzureService)라는 cmdlet을 사용하게 됩니다. 이번 설명은 가상 네트워크 안에 생성된 VM들을 마이그레이션 하는 방법을 설명합니다.
+
+다음의 PowerShell 스크립트를 이용하여, 가상 네트워크를 마이그레이션 합니다.
+
+```PowerShell
+
+Add-AzureAccount
+ 
+$subscriptionName = "your subscription"
+Select-AzureSubscription -SubscriptionName $subscriptionName
+ 
+$vnetName = "your virtual network"
+ 
+$validate = Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+$validate.ValidationMessages
+ 
+Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+ 
+Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+
+```
+
+위의 스크립트에서는 두 가지 매개 변수의 값을 변경 해주어야 합니다.
+
+- $subscriptionName = "your subscription"
+- $vnetName = "your virtual network"
+
+마이그레이션이 완료되면, 두 개의 새로운 Resource Group이 생성됩니다.
+
+- "가상 네크워크 이름" – Migrated
+- "클라우드 서비스 이름" – Migrated
+
+예제에서는 myVnet1이라는 가상 네트워크를 사용하였기 때문에, 다음과 같은 Resource Group이 생성됩니다.
+해당 Resource Group에는 가상 네트워크 리소스만 마이그레이션됩니다.
+
+![](https://jyseongfileshare.blob.core.windows.net/images/move-asm-vm-2-arm-04.png)
+
+클라우드 서비스는 jyseongasmvms라는 이름으로 생성을 하였습니다. 클라우드 서비스의 리소스들은 다음과 같은 Resource Group으로 마이그레이션이 됩니다.
+해당 Resource Group에는 VM, NIC, Availability set, Public IP, Load Balancer 등, VM과 관련된 리소스들이 마이그레이션 됩니다.
+
+![](https://jyseongfileshare.blob.core.windows.net/images/move-asm-vm-2-arm-05.png)
+
+마이그레이션이 완료되면, 구포털에서는 해당 리소스가 사라지게 됩니다.
+
+![](https://jyseongfileshare.blob.core.windows.net/images/move-asm-vm-2-arm-06.png)
