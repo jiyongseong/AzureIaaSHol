@@ -8,7 +8,7 @@ Classic(ASM, Azure Service Management)에서 만들어진 VM을 ARM(Azure Resour
 
 [Migrate IaaS resources from classic to Azure Resource Manager by using Azure PowerShell](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-ps-migration-classic-resource-manager)
 
-#### 사전 조건
+### 사전 조건
 
 먼저 최신의 Azure PowerShell이 필요합니다. 만약 이미 설치가 되어 있지 않다면, 다음의 링크에서 다운로드 하여 설치하시기 바랍니다.
 
@@ -16,7 +16,7 @@ Classic(ASM, Azure Service Management)에서 만들어진 VM을 ARM(Azure Resour
 
 이후의 작업들은 [Move-AzureVirtualNetwork](https://docs.microsoft.com/en-us/powershell/servicemanagement/Azure.Service/v2.1.0/Move-AzureVirtualNetwork)라는 cmdlet과 [Azure 포털](http://portal.azure.com/)을 이용하게 됩니다.
 
-#### Classic VM 구성
+### Classic VM 구성
 
 기존 구성은 다음과 같다고 가정을 하도록 하겠습니다.
 
@@ -44,7 +44,7 @@ Classic(ASM, Azure Service Management)에서 만들어진 VM을 ARM(Azure Resour
 
 각 VM의 VHD들은 하나의 storage account를 사용하도록 구성되어 있습니다.
 
-#### Classic VM 마이그레이션
+### Classic VM 마이그레이션
 
 이제는 VM을 마이그레이션 할 차례입니다. VM들이 가상 네트워크에 있는 경우에는 가상 네트워크를 마이그레이션 하면, 가상 네트워크 안에 있는 VM들도 같이 마이그레이션 됩니다.
 
@@ -93,3 +93,32 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 마이그레이션이 완료되면, 구포털에서는 해당 리소스가 사라지게 됩니다.
 
 ![](https://jyseongfileshare.blob.core.windows.net/images/move-asm-vm-2-arm-06.png)
+
+### 저장소 계정 이동
+
+이제 VM 및 가상 네트워크와 같이, VM을 운영하는데 필요한 리소스들은 Classic에서 ARM으로 이동이 완료되었습니다.
+
+하지만, 아직 이동되지 않은 리소스가 남아 있습니다. VM의 운영체제 디스크와 데이터 디스크는 그대로 Classic(V1) 저장소 계정에 남아 있습니다.
+
+마지막으로, 저장소 계정을 ARM으로 이동해주어야 합니다.
+
+다음의 PowerShell 스크립트를 이용하여 저장소 계정을 마이그레이션 합니다.
+
+```PowerShell
+$storageAccountName = "your storage account name"
+$validate = Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
+$validate.ValidationMessages
+
+Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName 
+```
+
+저장소 계정도 마찬가지로, "저장소 계정 이름" - Migrated라는 Resource Group으로 마이그레이션이 됩니다.
+
+![](https://jyseongfileshare.blob.core.windows.net/images/move-asm-vm-2-arm-07.png)
+
+마이그레이션이 완료되면, 저장소 계정의 속성 등을 다시 한번 확인해보시기 바랍니다(특히, 복제 유형).
+
+![](https://jyseongfileshare.blob.core.windows.net/images/move-asm-vm-2-arm-08.png)
+
+### (Optional) Resource Group 정리
+
