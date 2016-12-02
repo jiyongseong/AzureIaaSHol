@@ -122,3 +122,7 @@ Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 
 ### (Optional) Resource Group 정리
 
+마지막 작업은 반드시 필요한 작업은 아닙니다. 마이그레이션 작업에 의해서 생성된 Resource Group의 명칭이 "-Migrated"라는 형식을 가지고 있습니다. 이는 통상적으로 사용되는 명칭이 아니거나, 다른 명칭을 사용하려는 경우가 있습니다. 현재 Azure에서는 Resource Group의 이름을 변경하는 것이 허용되지 않기 때문에, 원하는 이름의 Resource Group을 새로 생성하고, 해당 Resource Group으로 마이그레이션한 리소스들을 이동(Move)해 주어야 합니다.
+
+Resource Group 간의 리소스 이동은 포털(http://portal.azure.com)으로 간단하게 이동이 가능합니다.
+
