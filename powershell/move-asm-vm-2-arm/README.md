@@ -126,3 +126,6 @@ Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
 
 Resource Group 간의 리소스 이동은 포털(http://portal.azure.com)으로 간단하게 이동이 가능합니다.
 
+포털에서 Resource Group을 선택하고, 상단에 있는 Move 버튼을 이용하여 다른 Resource Group으로 리소스의 이동이 가능합니다.
+
+![](https://jyseongfileshare.blob.core.windows.net/images/move-asm-vm-2-arm-09.png)
