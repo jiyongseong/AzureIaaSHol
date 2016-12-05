@@ -31,4 +31,6 @@ Micorosoft Azure에서 제공되는 IaaS(Infrastructure as a Service) 서비스�
   * [Virtual Machine 생성 시점에 Timezone 지정하기](https://github.com/jiyongseong/AzureIaaSHol/tree/master/resource_template/windows-vm-timezone) 
     - resource template를 이용하여 Azure Virtual Machine(Windows) 생성 시에, UTC가 아닌 다른 timezone을 설정하는 방법에 대해서 설명합니다.
 
+  * [Azure Classic VM을 ARM VM으로 이동하기](https://github.com/jiyongseong/AzureIaaSHol/tree/master/powershell/move-asm-vm-2-arm)
+
 **성지용([jiyongseong](https://github.com/jiyongseong))**
