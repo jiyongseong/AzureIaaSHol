@@ -115,7 +115,7 @@ Linux VM의 LAD(Linux Azure Diagnostics) 설정은 WAD(Windows Azure Diagnostics
 로그는 앞서 WAD(Windows Azure Diagnostics) 로그를 확인하는 방법과 같이, Azure Storage Explorer에서 확인하는 방법과 같습니다.
 다만, Linux VM의 경우에는 저장되는 Table이 다르며, LinuxSyslogVer2v0라는 Table에 저장됩니다.
 
-또한, 로깅되는 데이터의 기준이 각 Linux Distro별로 조금씩 다르다른 점은 유의해야 합니다.
+또한, 로깅되는 데이터의 기준이 각 Linux Distro별로 조금씩 다르다는 점은 유의해야 합니다.
 Ubuntu의 경우에는 로그인 정보는 아래와 같이 Faclity의 유형을 auth로 설정해야만 검색이 가능합니다.
 
 ![lad ](media/457ae0e5bc57aa0aba1159ac22070408.png)
