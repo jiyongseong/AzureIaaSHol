@@ -6,18 +6,17 @@ Azure VM에서는 해당 시스템 로그(Event Log/syslogs)를 Azure Diagnostic
 
 Diagnostics Log에 대한 좀 더 상세한 정보는 아래의 공식 문서를 참고하시기 바랍니다.
 
--   Azure 리소스에서 로그 데이터 수집 및 소비
-    (<https://docs.microsoft.com/ko-kr/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs>)
- 
+-   Azure 리소스에서 로그 데이터 수집 및 소비 (<https://docs.microsoft.com/ko-kr/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs>)
+
 운영 체제별로 로깅 방식이 상이함에 따라서, Azure에서는 운영 체제별(Windows/Linux)로 별도의 Agent를 제공하고 있으며, Windows용 Agent는 WAD(Windows Azure Diagnostics), Linux용은 Linux Azure Diagnostics(LAD)라고 부르고 있습니다.
 
-WAD/LAD는 다양한 방식으로 설정이 가능한데, Azure Portal(https://portal.azure.com)에서 UI를 통하여 설정할 수 있으며, CLI/PowerShell과 같이 명령을 이용하는 방법, Azure Template를 통한 설정방법 등이 있습니다.
+WAD/LAD는 다양한 방식으로 설정이 가능한데, [Azure Portal](https://portal.azure.com) 에서 UI를 통하여 설정할 수 있으며, CLI/PowerShell과 같이 명령을 이용하는 방법, Azure Template를 통한 설정방법 등이 있습니다.
 
 **Windows VM 설정 방법**
 
 Azure Portal을 이용한 설정 방법은 아래와 같습니다. 먼저, Windows VM에 대한 설정 방법을 설명하고, 뒤이어 Linux VM에 대한 설정 방법을 공유드리겠습니다.
 
-Azure Portal(https://portal.azure.com)에 접속하여, 설정을 원하는 VM을 선택합니다.
+[Azure Portal](https://portal.azure.com)에 접속하여, 설정을 원하는 VM을 선택합니다.
 좌측 메뉴에서 Monitoring 항목 아래의 Diagnostics settings를 선택합니다.
 
 ![wad](media/3a199c3945103662c43731f97346fba7.png)
@@ -41,7 +40,7 @@ Event Log에 기록된 로그는 아래와 같습니다.
 
 ![wad](media/c7dcdd31cc9841f7d36fabb5ff17fb07.png)
 
-Azure Storage Explorer(https://azure.microsoft.com/en-us/features/storage-explorer/) 를 열고, 앞서 자동으로 생성된 Storage account를 선택합니다.
+[Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/)를 열고, 앞서 자동으로 생성된 Storage account를 선택합니다.
 해당 storage account 하위에 있는 Tables 항목을 확장하면, WADWindowsEventLogsTable이라는 Table Storage가 보여지게 됩니다. 해당 Table을 클릭합니다.
 
 ![wad](media/a8c5955cc39f900300b3ce236756875e.png)
@@ -68,14 +67,14 @@ LAD 3.\* 버전은 CLI/PowerShell을 통하여 설정이 가능하며, 해당 �
 
 Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링 (<https://docs.microsoft.com/ko-kr/azure/virtual-machines/extensions/diagnostics-linux>)
 
-Azure CLI는 별도로 설치(https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 도 가능하지만, Azure Portal(CloudShell이라고 합니다)에서도 실행할 수 있습니다.
+Azure CLI는 별도로 [설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)도 가능하지만, Azure Portal(CloudShell이라고 합니다)에서도 실행할 수 있습니다.
 Azure Portal의 CloudShell에는 이미 CLI와 PowerShell이 설치되어 있으므로, 별도의 설치 과정이 필요하지 않습니다.
 
 CloudShell은 Azure Portal 상단의 CloudShell 버튼을 클릭하거나, 
 
 ![cloudshell](media/31df668b778641e7f90d52134590f0ee.png)
 
-별도의 CloudShell 사이트(https://shell.azure.com/) 로 접근하여 실행할 수 있습니다.
+별도의 [CloudShell 사이트](https://shell.azure.com/) 로 접근하여 실행할 수 있습니다.
 
 ![Cloud Shell ](media/1b77a358e5160545a23ee49dc1a5b7e5.png)
 
