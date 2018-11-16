@@ -6,7 +6,7 @@ Azure VM에서는 해당 시스템 로그(Event Log/syslogs)를 Azure Diagnostic
 
 Diagnostics Log에 대한 좀 더 상세한 정보는 아래의 공식 문서를 참고하시기 바랍니다.
 
--   Azure 리소스에서 로그 데이터 수집 및 소비 (<https://docs.microsoft.com/ko-kr/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs>)
+- [Azure 리소스에서 로그 데이터 수집 및 소비](https://docs.microsoft.com/ko-kr/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 
 운영 체제별로 로깅 방식이 상이함에 따라서, Azure에서는 운영 체제별(Windows/Linux)로 별도의 Agent를 제공하고 있으며, Windows용 Agent는 WAD(Windows Azure Diagnostics), Linux용은 Linux Azure Diagnostics(LAD)라고 부르고 있습니다.
 
@@ -65,7 +65,7 @@ Linux VM도 Windows VM과 동일한 방식으로 Azure Portal을 통하여 설�
 안타깝게도 LAD 2.\* 버전에서는 로그인에 대한 정보가 상세하게 기록이 되지 않고 있으며, 로그인 성공/실패에 대한 정보를 로깅하기 위해서는 LAD 3.\* 버전의 설치가 필요합니다.
 LAD 3.\* 버전은 CLI/PowerShell을 통하여 설정이 가능하며, 해당 방법은 아래의 링크에서 자세하게 다루고 있습니다.
 
-Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링 (<https://docs.microsoft.com/ko-kr/azure/virtual-machines/extensions/diagnostics-linux>)
+- [Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링](https://docs.microsoft.com/ko-kr/azure/virtual-machines/extensions/diagnostics-linux)
 
 Azure CLI는 별도로 [설치](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)도 가능하지만, Azure Portal(CloudShell이라고 합니다)에서도 실행할 수 있습니다.
 Azure Portal의 CloudShell에는 이미 CLI와 PowerShell이 설치되어 있으므로, 별도의 설치 과정이 필요하지 않습니다.
@@ -74,7 +74,7 @@ CloudShell은 Azure Portal 상단의 CloudShell 버튼을 클릭하거나, 
 
 ![cloudshell](media/31df668b778641e7f90d52134590f0ee.png)
 
-별도의 [CloudShell 사이트](https://shell.azure.com/) 로 접근하여 실행할 수 있습니다.
+별도의 [CloudShell 사이트](https://shell.azure.com/)로 접근하여 실행할 수 있습니다.
 
 ![Cloud Shell ](media/1b77a358e5160545a23ee49dc1a5b7e5.png)
 
