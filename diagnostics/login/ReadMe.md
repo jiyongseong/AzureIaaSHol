@@ -33,7 +33,7 @@ Azure Portal(https://portal.azure.com)에 접속하여, 설정을 원하는 VM�
 
 다음과 같은 화면이 보여지면, Security 항목의 Audit Success 체크박스를 선택하고, 상단의 Save 버튼을 클릭합니다.
 
-![Machine generated alternative text: R x Discard Overview Performance counters Event logs Logs Crash dumps Sinks Agent Choose Basic to enable collection of event logs. Choose Custom if you want more control over which event logs are collected. None Basic Custom Configure the event logs and levels to collect: Application Critical Security Aud it success System g.] Critical Directories Error Audit failure v' Error Warning Warning Information Information Verbose Verbose Choose the IIS logs to collect and the log directories to monitor. IIS logs O \* Storage container name: o Failed request logs O ](media/369bbae46489af2f18f8566907df6f17.png)
+![](media/369bbae46489af2f18f8566907df6f17.png)
 
 저장이 완료되면, RDP를 이용하여 해당 VM에 로그인을 합니다. 로그인이 성공적으로 이루어지면, 로그인에 대한 정보는 Windows Server의 Event Log에 기록이 되고, 해당 Event Log는 Windows Azure Diagnostics에 의해서 Storage account로 복사됩니다.
 
