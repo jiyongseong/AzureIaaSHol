@@ -41,7 +41,7 @@ Event Log에 기록된 로그는 아래와 같습니다.
 
 ![wad](media/c7dcdd31cc9841f7d36fabb5ff17fb07.png)
 
-Azure Storage Explorer(https://azure.microsoft.com/en-us/features/storage-explorer/)를 열고, 앞서 자동으로 생성된 Storage account를 선택합니다.
+Azure Storage Explorer(https://azure.microsoft.com/en-us/features/storage-explorer/) 를 열고, 앞서 자동으로 생성된 Storage account를 선택합니다.
 해당 storage account 하위에 있는 Tables 항목을 확장하면, WADWindowsEventLogsTable이라는 Table Storage가 보여지게 됩니다. 해당 Table을 클릭합니다.
 
 ![wad](media/a8c5955cc39f900300b3ce236756875e.png)
@@ -68,40 +68,40 @@ LAD 3.\* 버전은 CLI/PowerShell을 통하여 설정이 가능하며, 해당 �
 
 Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링 (<https://docs.microsoft.com/ko-kr/azure/virtual-machines/extensions/diagnostics-linux>)
 
-Azure CLI는 별도로 설치(https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)도 가능하지만, Azure Portal(CloudShell이라고 합니다)에서도 실행할 수 있습니다.
+Azure CLI는 별도로 설치(https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 도 가능하지만, Azure Portal(CloudShell이라고 합니다)에서도 실행할 수 있습니다.
 Azure Portal의 CloudShell에는 이미 CLI와 PowerShell이 설치되어 있으므로, 별도의 설치 과정이 필요하지 않습니다.
 
 CloudShell은 Azure Portal 상단의 CloudShell 버튼을 클릭하거나, 
 
 ![cloudshell](media/31df668b778641e7f90d52134590f0ee.png)
 
-별도의 CloudShell 사이트(https://shell.azure.com/)로 접근하여 실행할 수 있습니다.
+별도의 CloudShell 사이트(https://shell.azure.com/) 로 접근하여 실행할 수 있습니다.
 
 ![Cloud Shell ](media/1b77a358e5160545a23ee49dc1a5b7e5.png)
 
 앞선 링크에 있는 CLI 쿼리를 복사하여 일부 매개변수만 조정하여 실행하면 됩니다. CloudShell에서 실행하는 경우 예제 코드를 모두 실행할 필요는 없으며, 아래의 CLI만 실행하면 됩니다. 수정할 부분은 \<\<수정할 부분\>\>와 같이 하이라이트 하였습니다.
 
 ```bash
-\# Set your Azure VM diagnostic parameters correctly below
-my_resource_group=\<<리소스 그룹 이름\>>
-my_linux_vm=\<<설정하려는 VM 이름\>>
-my_diagnostic_storage_account=\<<Diagnostics Log를 저장할 Storage account 이름\>>
+# Set your Azure VM diagnostic parameters correctly below
+my_resource_group=<<리소스 그룹 이름>>
+my_linux_vm=<<설정하려는 VM 이름>>
+my_diagnostic_storage_account=<<Diagnostics Log를 저장할 Storage account 이름>>
 
-\# Download the sample Public settings. (You could also use curl or any web browser)
+# Download the sample Public settings. (You could also use curl or any web browser)
 
 wget <https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json> -O portal_public_settings.json
 
-\# Build the VM resource ID. Replace storage account name and resource ID in the public settings.
+# Build the VM resource ID. Replace storage account name and resource ID in the public settings.
 
 my_vm_resource_id=\$(az vm show -g \$my_resource_group -n \$my_linux_vm --query "id" -o tsv)
 sed -i "s\#__DIAGNOSTIC_STORAGE_ACCOUNT__\#\$my_diagnostic_storage_account\#g" portal_public_settings.json
 sed -i "s\#__VM_RESOURCE_ID__\#\$my_vm_resource_id\#g" portal_public_settings.json
 
-\# Build the protected settings (storage account SAS token)
+# Build the protected settings (storage account SAS token)
 my_diagnostic_storage_account_sastoken=\$(az storage account generate-sas--account-name \$my_diagnostic_storage_account --expiry 2037-12-31T23:59:00Z --permissions wlacu --resource-types co --services bt -o tsv)
 my_lad_protected_settings="{'storageAccountName': '\$my_diagnostic_storage_account', 'storageAccountSasToken': '\$my_diagnostic_storage_account_sastoken'}"
 
-\# Finallly tell Azure to install and enable the extension
+# Finallly tell Azure to install and enable the extension
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group \$my_resource_group --vm-name \$my_linux_vm --protected-settings "\${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
