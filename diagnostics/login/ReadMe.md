@@ -83,9 +83,9 @@ CloudShell은 Azure Portal 상단의 CloudShell 버튼을 클릭하거나, 
 
 ```bash
 \# Set your Azure VM diagnostic parameters correctly below
-my_resource_group=\<\<리소스 그룹 이름\>\>
-my_linux_vm=\<\<설정하려는 VM 이름\>\>
-my_diagnostic_storage_account=\<\<Diagnostics Log를 저장할 Storage account 이름\>\>
+my_resource_group=\<<리소스 그룹 이름\>>
+my_linux_vm=\<<설정하려는 VM 이름\>>
+my_diagnostic_storage_account=\<<Diagnostics Log를 저장할 Storage account 이름\>>
 
 \# Download the sample Public settings. (You could also use curl or any web browser)
 
