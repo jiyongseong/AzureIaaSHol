@@ -111,7 +111,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 
 Linux VM의 LAD(Linux Azure Diagnostics) 설정은 WAD(Windows Azure Diagnostics)와는 조금 상이하며, 다음과 같습니다.
 
-![Machine generated alternative text: Configuration management . Run command Monitoring Insights (preview) Alerts Metrics Diagnostics settings Advisor recommendations Logs (preview) Connection monitor Support + troubleshooting Resource health Boot diagnostics Reset password Redeploy Ubuntu Advantage support Serial console Connection troubleshoot ubuntuVM Virtual machine p Search (Ctrl +19 Change tracking • LOG AUTH • LOG CRON • LOG KERN • LOG NEWS • LOG UUCP - Diagnostics settings Save Overview Metrics Discard Metrics Syslog Agent Collecting data for these metrics: • read bytespersecond • writespersecond • averagetransfertime • transferspersecond • writebytespersecond • and 43 additional counter(s) C2Qfjgyce me!rig Syslog Collecting logs for these facilities: • LOG AUTHPRIV • LOG DAEMON • LOG • LOG LOCALO • LOG LOCALI • LOG LOCAL2 • LOG LOCAL3 • LOG LOCAL4 • LOG LOCAL5 • LOG LOCAL6 • LOG LOCAL7 • LOG LPR • LOG MAIL • LOG SYSLOG • LOG USER Configure syslog ](media/73535af13bc716b47fb290b560a15bcc.png)
+![](media/73535af13bc716b47fb290b560a15bcc.png)
 
 로그는 앞서 WAD(Windows Azure Diagnostics) 로그를 확인하는 방법과 같이, Azure Storage Explorer에서 확인하는 방법과 같습니다.
 다만, Linux VM의 경우에는 저장되는 Table이 다르며, LinuxSyslogVer2v0라는 Table에 저장됩니다.
