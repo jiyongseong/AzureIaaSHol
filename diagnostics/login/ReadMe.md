@@ -20,43 +20,43 @@ Azure Portal을 이용한 설정 방법은 아래와 같습니다. 먼저, Windo
 Azure Portal(https://portal.azure.com)에 접속하여, 설정을 원하는 VM을 선택합니다.
 좌측 메뉴에서 Monitoring 항목 아래의 Diagnostics settings를 선택합니다.
 
-![Machine generated alternative text: WindowsVM Virtual machine p Search (Ctrl +19 Change tracking Configuration management . Run command Monitoring Insights (preview) Alerts Metrics Diagnostics settings Advisor recommendations Logs (preview) Connection monitor Start Connect Resource group Change) UbuntuLad Status Running Location Korea South Subscription (change) Azure Demo Subscription ID Tags (change) Click here to add tags Show data for last: 1 hour Restart 6 hours Stop 12 hours ](media/3a199c3945103662c43731f97346fba7.png)
+![wad](media/3a199c3945103662c43731f97346fba7.png)
 
 다음과 같은 화면이 보여지면, "Enable guest-level monitoring" 버튼을 클릭합니다.
 
-![Machine generated alternative text: WindowsVM - Diagnostics settings Virtual machine earch (Ctrl+D lange tracking infiguration management . In command 'ring ;ights (preview) arts etrics agnostics settings Ivisor recommendations gs (preview) innection monitor « Save X Discard Overview Performance counters Logs Crash dumps Sinks Agent Azure Monitoring collects host-level metrics software. For more insight into this virtual mal Diagnostics agent. You can also send diagnosi To get started now, click the button below: Enable guest-level monitoring Already know what you're doing? You can cus remove data types to collect at any time. ](media/fa7014f908a92079214b44385c2e0bcb.png)
+![wad](media/fa7014f908a92079214b44385c2e0bcb.png)
 
 설정이 완료되면, 아래와 같은 화면이 보여지게 됩니다. Azure에 의해서 ubuntuladdiag564라는 Storage Account가 자동으로 생성됩니다.
 상단의 메뉴에서 Logs 메뉴를 선택합니다.
 
-![Machine generated alternative text: Overview Performance counters Performance counters Collecting data for these counters: • CPU • Memory • Disk • Network Configure performance counters Event logs Collecting data for these logs: Application: Critical, Error, Warning • Security. Audit failure System: Critical, Error, Warning Configure event logs Directories Not configured. Configure directories Crash dumps Not collecting memory dumps. Configure crash dumps Sinks Diagnostic data is not being sent to any sinks. Logs Crash dumps Sinks Agent Configure sinks Agent Diagnostic data is bein ubuntuladdiag564 nt to this storage account: ](media/fdd9f5be1380bed4fd4e52a2a1266aab.png)
+![wad](media/fdd9f5be1380bed4fd4e52a2a1266aab.png)
 
 다음과 같은 화면이 보여지면, Security 항목의 Audit Success 체크박스를 선택하고, 상단의 Save 버튼을 클릭합니다.
 
-![](media/369bbae46489af2f18f8566907df6f17.png)
+![eventvwr](media/369bbae46489af2f18f8566907df6f17.png)
 
 저장이 완료되면, RDP를 이용하여 해당 VM에 로그인을 합니다. 로그인이 성공적으로 이루어지면, 로그인에 대한 정보는 Windows Server의 Event Log에 기록이 되고, 해당 Event Log는 Windows Azure Diagnostics에 의해서 Storage account로 복사됩니다.
 
 Event Log에 기록된 로그는 아래와 같습니다.
 
-![Machine generated alternative text: Event Properties - Event 4624, Microsoft Windows security auditing. General Details Linked Logon ID: Network Account Name: Network Account Domain: - Logon GUID: Process Information: Process ID: Process Name: Network Information: Workstation Name: {00000000-0000-0000-0000-000000000000} sparkclient-win Source Network Address: 167.220.232.83 Source Port: Detailed Authentication Information: Logon Process: User32 Authentication Package: Negotiate Transited Services: Log Name: Source Event ID: Security Microsoft WInd0ws security Information N/A Info Logged: 11/16/2018 252:40 AM Task Category Logon Keywords: Computer. Audit Success sparkclient-win More Information: Event Log Online Help ](media/c7dcdd31cc9841f7d36fabb5ff17fb07.png)
+![wad](media/c7dcdd31cc9841f7d36fabb5ff17fb07.png)
 
 Azure Storage Explorer(https://azure.microsoft.com/en-us/features/storage-explorer/)를 열고, 앞서 자동으로 생성된 Storage account를 선택합니다.
 해당 storage account 하위에 있는 Tables 항목을 확장하면, WADWindowsEventLogsTable이라는 Table Storage가 보여지게 됩니다. 해당 Table을 클릭합니다.
 
-![Machine generated alternative text: Storage Acc • ts ;x4335xaef krc iag295 ubuntuladdiafiifi4 Blob Containers File Shares Queues Tables SchemasTable WADPerformanceCountersTable WADWindowsEventLogsTable ](media/a8c5955cc39f900300b3ce236756875e.png)
+![wad](media/a8c5955cc39f900300b3ce236756875e.png)
 
 우측에 Table에 저장된 데이터가 보여지게 됩니다. 상단의 Query 버튼을 클릭합니다.
 
-![Machine generated alternative text: WADWindowsEventLogsTable x Add I m port PartitionKey Export Edit Select All Column Options Delete Table Statistics Re fn RowKey 0636779374800000000 1 1bOa88c1-OeOa-48d1-9b73-5e8c16ebOb99 0636779374800000000 0636779374800000000 -OeOa-48dI 1bOa88c1-OeOa-48d1-9b73-5e8c16ebOb99 1bOa88c1 -9b73-5e8c16ebOb99 laaS laaS laaS WindowsVM WindowsVM WindowsVM 0000000004295488675 0000000008590455971 0000000017180390563 ](media/8121e5f6e1c4107950ef78f5c84f2e12.png)
+![storageexplorer ](media/8121e5f6e1c4107950ef78f5c84f2e12.png)
 
 다음과 같이 쿼리 조건을 설정하고, 초록색 실행 버튼을 클릭합니다.
 
-![Machine generated alternative text: And/Or -F Add new clause Advanced Options v Field Eventld Type Int32 Operator Value 4624 ](media/ec885aaf39610cabc1c2431f846aa6b8.png)
+![storageexplorer ](media/ec885aaf39610cabc1c2431f846aa6b8.png)
 
 결과를 확인하면, Description 속성에서 아래와 같이 접속한 클라이언트의 IP 주소와 계정 등, 다양한 정보들을 확인할 수 있습니다.
 
-![Machine generated alternative text: Eventld - Add new Microsoft Azure Storage Explorer - Edit Entity Int32 Type String String DateTime String String String Int32 Int64 Int32 4624 Value 0636779375400000000 2018-11-16T04:OOB1.107Z Security 1bOa88c1-OeOa-48d1-9b73-5e8c16ebOt x vanced De 8... o... o... 6... tivities Edit Entity Property Name PartitionKey RowKey Timestamp Channel Deploymentld Description Eventld EventTickCount Add Property twork Address: 4624 167.220.233.83 ndows-Security ndows-Security ndows-Security ndows-Security ndows-Security dows-Security ndows-Security ndows-Security ndows-Security ndows-Security 636779375454178819 Cancel Update ](media/1fe61e4d5c7fe71673c41252a71d4bc3.png)
+![storageexplorer ](media/1fe61e4d5c7fe71673c41252a71d4bc3.png)
 
 **Linux VM 설정 방법**
 
@@ -73,11 +73,11 @@ Azure Portal의 CloudShell에는 이미 CLI와 PowerShell이 설치되어 있으
 
 CloudShell은 Azure Portal 상단의 CloudShell 버튼을 클릭하거나, 
 
-![Machine generated alternative text: jyseong\@microsoftc... MICROSOFT ](media/31df668b778641e7f90d52134590f0ee.png)
+![cloudshell](media/31df668b778641e7f90d52134590f0ee.png)
 
 별도의 CloudShell 사이트(https://shell.azure.com/)로 접근하여 실행할 수 있습니다.
 
-![Machine generated alternative text: Azure Cloud Shell a https://shell.azure.com/ Azure Cloud Shell Bash Requesting a Cloud Shell. Succeeded. Connecting terminal... Welcome to Azure Cloud Shell Type "az" to use Azure CLI 2.0 Type "help" to learn about Cloud Shell ](media/1b77a358e5160545a23ee49dc1a5b7e5.png)
+![Cloud Shell ](media/1b77a358e5160545a23ee49dc1a5b7e5.png)
 
 앞선 링크에 있는 CLI 쿼리를 복사하여 일부 매개변수만 조정하여 실행하면 됩니다. CloudShell에서 실행하는 경우 예제 코드를 모두 실행할 필요는 없으며, 아래의 CLI만 실행하면 됩니다. 수정할 부분은 \<\<수정할 부분\>\>와 같이 하이라이트 하였습니다.
 
@@ -105,13 +105,13 @@ my_lad_protected_settings="{'storageAccountName': '\$my_diagnostic_storage_accou
 az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnostic --version 3.0 --resource-group \$my_resource_group --vm-name \$my_linux_vm --protected-settings "\${my_lad_protected_settings}" --settings portal_public_settings.json
 ```
 
-![Machine generated alternative text: i\@Azure:—\$ sed -i "s\# DIAGNOSTIC STORAGE \_ ACCOUNT \#\$my_diagnostic_storage_account\#g" portal_public_settings .json i\@Azure:—\$ sed -i "s\# VM RESOURCE ID \#\$my_vm_resource_id\#g" portal_public_settings .json i\@Azure:—\$ \$my_vm_resource_id ash: [subscriptions/cae76bde-fb86-4335-aef5-33674b746691/resourceGroups/UbuntuLad/providers/Microsoft.Compute/virtua1Machir i\@Azure:—\$ my_diagnostic_storage_account_sastoken=\$(az storage account generate-sas -account-name \$my_diagnostic_storage --services bt -o tsv) es co i\@Azure:—\$ my_lad_protected_settings="{ ' storageAccountName' : '\$my_diagnostic_storage_account' , ' storageAccountSasToken': 'S i\@Azure:—\$ \$my_diagnostic_storage_account_sastoken ash: i\@Azure:—\$ az vm extension set --publisher Microsoft. Azure.Diagnostics - -name LinuxDiagnostic --version 3.0 --resource-grot lad_protected_settings}" - -settings . j son Running . ](media/e0f4d622f8bd47b4b910874db41c7138.png)
+![cloudshell](media/e0f4d622f8bd47b4b910874db41c7138.png)
 
 설정이 완료된 이후에, ssh를 이용하여 Linux VM으로 접근을 하면 syslog에 해당 정보가 기록이 되고, LAD(Linux Azure Diagnostics)에 의해서 해당 Storage account로 로그가 복사됩니다.
 
 Linux VM의 LAD(Linux Azure Diagnostics) 설정은 WAD(Windows Azure Diagnostics)와는 조금 상이하며, 다음과 같습니다.
 
-![](media/73535af13bc716b47fb290b560a15bcc.png)
+![lad](media/73535af13bc716b47fb290b560a15bcc.png)
 
 로그는 앞서 WAD(Windows Azure Diagnostics) 로그를 확인하는 방법과 같이, Azure Storage Explorer에서 확인하는 방법과 같습니다.
 다만, Linux VM의 경우에는 저장되는 Table이 다르며, LinuxSyslogVer2v0라는 Table에 저장됩니다.
@@ -119,8 +119,8 @@ Linux VM의 LAD(Linux Azure Diagnostics) 설정은 WAD(Windows Azure Diagnostics
 또한, 로깅되는 데이터의 기준이 각 Linux Distro별로 조금씩 다르다른 점은 유의해야 합니다.
 Ubuntu의 경우에는 로그인 정보는 아래와 같이 Faclity의 유형을 auth로 설정해야만 검색이 가능합니다.
 
-![Machine generated alternative text: Close Query Import (Z And/Or + Add new clause Advanced Options v 2018-11 2018-11 2018-11 1 2018-11 2018-11 2018-11 Export Field Facility FluentdlngestTimestamp 2018-11 Add Edit Type String Select All Column Options Operator auth Msg Removed session 10. Removed session 12. Delete Table Statistics Refresh Facility auth auth auth auth auth auth Host ubuntuV... ubuntuV.. ubuntuV... ubuntuV... ubuntuV... ubuntuV... Ignore syslog syslog syslog syslog syslog syslog PreciseTil Accepted password for labuser from 167.220.233.83 port 58162 ss... New session 16 of user labuser. Accepted password for labuser from 167.220.233.83 port 55316 ss... New session 18 of user labuser. 0000000000000000000 0000000000000000000 ooooooooooooooooooo 0000000000000000000 0000000000000000000 0000000000000000000 ](media/457ae0e5bc57aa0aba1159ac22070408.png)
+![lad ](media/457ae0e5bc57aa0aba1159ac22070408.png)
 
 CentOS의 경우에는 아래와 같이 Facility 유형을 authpriv로 설정해야만 검색이 가능합니다.
 
-![Machine generated alternative text: Close Query Import (Z And/Or + Add new clause Advanced Options v Export Field Facility Add Host Edit Type String Select All Ignore syslog syslog syslog syslog syslog syslog syslog syslog syslog Column Options Operator V uthpriv Msg Delete Table Statistics Refresh ility priv priv priv priv priv priv priv priv priv FluentdlngestTimestamp 2018 2018 2018 2018 2018 2018 2018 -11 -11 sparknamenode... sparknamenode... sparknamenode... sparknamenode... sparknamenode... sparknamenode... sparknamenode... sparknamenode... sparknamenode... pam_unix(sshd:session): session opened for user labuser by (uid=0) pam_unix(sshd:session): session closed for user labuser Accepted keyboard-interactive/pam for labuser from 10.0.0.4 port 50048 ssh2 pam_unix(sshd:session): session opened for user labuser by (uid=0) Accepted password for labuser from 10.0.0.4 port 50049 ssh2 pam_unix(sshd:session): session opened for user labuser by (uid=0) pam_unix(sshd:session): session closed for user labuser pam_unix(sshd:session): session closed for user labuser Accepted keyboard-interactive/pam for labuser from 10.0.0.4 port 50050 ssh2 00000( ](media/6540d8f17221d27a69ba4d40abd89088.png)
+![lad ](media/6540d8f17221d27a69ba4d40abd89088.png)
